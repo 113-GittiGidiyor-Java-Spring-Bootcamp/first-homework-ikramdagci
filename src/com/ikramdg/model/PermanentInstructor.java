@@ -26,4 +26,11 @@ public class PermanentInstructor extends Instructor{
     public void setSalary(double salary) {
         this.salary = salary;
     }
+
+    @Override
+    public String toString() {
+        return "PermanentInstructor{" +
+                "salary=" + salary +
+                super.toString();
+    }
 }

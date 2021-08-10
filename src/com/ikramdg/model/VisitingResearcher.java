@@ -26,4 +26,11 @@ public class VisitingResearcher extends Instructor{
     public void setHoursWorked(int hoursWorked) {
         this.hoursWorked = hoursWorked;
     }
+
+    @Override
+    public String toString() {
+        return "VisitingResearcher{" +
+                "hoursWorked=" + hoursWorked +
+                super.toString();
+    }
 }

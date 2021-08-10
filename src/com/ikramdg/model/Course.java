@@ -1,6 +1,7 @@
 package com.ikramdg.model;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "t_course")
@@ -58,5 +59,29 @@ public class Course {
 
     public void setInstructor(Instructor instructor) {
         this.instructor = instructor;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Course course = (Course) o;
+        return Objects.equals(courseId, course.courseId) && Objects.equals(courseCode, course.courseCode);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(courseId, courseCode);
+    }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "courseId=" + courseId +
+                ", name='" + name + '\'' +
+                ", courseCode='" + courseCode + '\'' +
+                ", creditScore=" + creditScore +
+                ", instructor=" + instructor.getName() +
+                '}';
     }
 }
