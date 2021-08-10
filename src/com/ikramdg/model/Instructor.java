@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 @Entity
 @Table(name = "t_instructor")
@@ -25,16 +26,23 @@ public abstract class Instructor {
     @OneToMany(mappedBy = "instructor")
     private Set<Course> instructedCourses = new HashSet<>();
 
-    public Instructor(String name, String phoneNumber, Address address, Set<Course> instructedCourses) {
+    public Instructor(String name, String phoneNumber, Address address) {
         this.name = name;
-        this.phoneNumber = phoneNumber;
+        setPhoneNumber(phoneNumber);
         this.address = address;
-        this.instructedCourses = instructedCourses;
     }
 
     public Instructor() {}
 
+    private boolean isValidPhoneNumber(String phoneNumber) {
+        Pattern validPattern = Pattern.compile("^\\d{10}$");
+        return validPattern.matcher(phoneNumber).matches();
 
+    }
+
+    public void addInstructedCourse(Course course) {
+        instructedCourses.add(course);
+    }
 
     public Long getInstructorId() {
         return instructorId;
@@ -57,6 +65,7 @@ public abstract class Instructor {
     }
 
     public void setPhoneNumber(String phoneNumber) {
+        if(!isValidPhoneNumber(phoneNumber)) throw new RuntimeException("Invalid Phone Number");
         this.phoneNumber = phoneNumber;
     }
 

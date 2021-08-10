@@ -12,8 +12,8 @@ public class PermanentInstructor extends Instructor{
      @Column(name = "salary")
     private double salary;
 
-    public PermanentInstructor(String name, String phoneNumber, Address address, Set<Course> instructedCourses, double salary) {
-        super(name, phoneNumber, address, instructedCourses);
+    public PermanentInstructor(String name, String phoneNumber, Address address, double salary) {
+        super(name, phoneNumber, address);
         this.salary = salary;
     }
 

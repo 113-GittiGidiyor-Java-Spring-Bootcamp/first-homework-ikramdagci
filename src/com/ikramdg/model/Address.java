@@ -9,8 +9,6 @@ public class Address {
 
     @Column(name = "zip_code", table = "t_address")
     private String zipCode;
-    @Column(name = "state", table = "t_address")
-    private String state;
     @Column(name = "city", table = "t_address")
     private String city;
     @Column(name = "street", table = "t_address")
@@ -18,6 +16,15 @@ public class Address {
     @Column(name = "house_number", table = "t_address")
     private int houseNumber;
 
+    public Address(String zipCode, String city, String street, int houseNumber) {
+        this.zipCode = zipCode;
+        this.city = city;
+        this.street = street;
+        this.houseNumber = houseNumber;
+    }
+
+    public Address() {
+    }
 
     public String getZipCode() {
         return zipCode;
@@ -25,14 +32,6 @@ public class Address {
 
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
     }
 
     public String getCity() {
@@ -64,19 +63,18 @@ public class Address {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Address address = (Address) o;
-        return houseNumber == address.houseNumber && Objects.equals(zipCode, address.zipCode) && Objects.equals(state, address.state) && Objects.equals(city, address.city) && Objects.equals(street, address.street);
+        return houseNumber == address.houseNumber && Objects.equals(zipCode, address.zipCode) &&  Objects.equals(city, address.city) && Objects.equals(street, address.street);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(zipCode, state, city, street, houseNumber);
+        return Objects.hash(zipCode, city, street, houseNumber);
     }
 
     @Override
     public String toString() {
         return "Address{" +
                 "zipCode='" + zipCode + '\'' +
-                ", state='" + state + '\'' +
                 ", city='" + city + '\'' +
                 ", street='" + street + '\'' +
                 ", houseNumber=" + houseNumber +

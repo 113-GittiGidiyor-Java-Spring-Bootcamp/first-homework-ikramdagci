@@ -21,10 +21,11 @@ public class Course {
     private Instructor instructor;
 
 
-    public Course(String name, String courseCode, double creditScore) {
+    public Course(String name, String courseCode, double creditScore, Instructor instructor) {
         this.name = name;
         this.courseCode = courseCode;
         this.creditScore = creditScore;
+        this.instructor = instructor;
     }
 
     public Course() {}

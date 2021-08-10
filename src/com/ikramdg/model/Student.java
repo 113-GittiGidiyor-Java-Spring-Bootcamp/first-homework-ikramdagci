@@ -2,6 +2,7 @@ package com.ikramdg.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -10,6 +11,7 @@ import java.util.Set;
 @Entity
 @Table(name = "t_student")
 public class Student {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long studentId;
@@ -23,7 +25,21 @@ public class Student {
 
     @ManyToMany
     @JoinTable(name = "t_student_courses", joinColumns = @JoinColumn(name = "student_id"), inverseJoinColumns = @JoinColumn(name = "course_id"))
-    private Set<Course> courses;
+    private Set<Course> courses = new HashSet<>();
+
+    public Student(String fullName, LocalDate birthDate, Address address, Gender gender) {
+        this.studentId = studentId;
+        this.fullName = fullName;
+        this.birthDate = birthDate;
+        this.address = address;
+        this.gender = gender;
+    }
+
+    public Student() {}
+
+    public void addCourse(Course course) {
+        courses.add(course);
+    }
 
     public Long getStudentId() {
         return studentId;
