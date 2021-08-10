@@ -14,7 +14,9 @@ public class Course {
     private String courseCode;
     @Column(name = "credit_score")
     private double creditScore;
-    @Column(name = "instructor")
+
+    @ManyToOne
+    @JoinColumn(name = "course_instructor_id")
     private Instructor instructor;
 
 
