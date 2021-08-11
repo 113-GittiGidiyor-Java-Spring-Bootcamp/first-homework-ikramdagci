@@ -24,10 +24,11 @@ public class SchoolManagementSystemDriver {
 
 
     public static void main(String[] args) {
-        persistSomeData();
+//        persistSomeData();
+        testDB();
     }
 
-    private static void persistSomeData() {
+   /* private static void persistSomeData() {
         Address address = new Address("41700","Kocaeli","Bayramoglu",25);
         Address address2 = new Address("34550","Istanbul","Hurriyet",569);
         Address address3 = new Address("54103","Sakarya","Emek",2);
@@ -94,6 +95,6 @@ public class SchoolManagementSystemDriver {
         }
 
 
-    }
+    }*/
 
 }

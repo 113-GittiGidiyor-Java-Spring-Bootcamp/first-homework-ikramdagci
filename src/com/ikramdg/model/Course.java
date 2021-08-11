@@ -82,7 +82,7 @@ public class Course {
                 ", name='" + name + '\'' +
                 ", courseCode='" + courseCode + '\'' +
                 ", creditScore=" + creditScore +
-                ", instructor=" + instructor.getName() +
+                ", instructor=" + instructor.getFullName() +
                 '}';
     }
 }

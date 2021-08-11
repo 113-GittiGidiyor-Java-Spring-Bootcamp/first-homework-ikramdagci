@@ -12,8 +12,8 @@ public class VisitingResearcher extends Instructor{
     @Column(name = "hours_worked")
     private int hoursWorked;
 
-    public VisitingResearcher(String name, String phoneNumber, Address address, int hoursWorked) {
-        super(name, phoneNumber, address);
+    public VisitingResearcher(String fullName, Address address, String phoneNumber, int hoursWorked) {
+        super(fullName, address, phoneNumber);
         this.hoursWorked = hoursWorked;
     }
 
