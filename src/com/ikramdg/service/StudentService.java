@@ -80,7 +80,7 @@ public class StudentService implements StudentRepository {
         EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
-            Query query = entityManager.createQuery("delete from Student s where s.id = :id",Student.class).setParameter("id", id);
+            Query query = entityManager.createNativeQuery("DELETE FROM t_student WHERE staff_id = ?", Student.class).setParameter(1, id);
             query.executeUpdate();
             transaction.commit();
         }catch (Exception e) {

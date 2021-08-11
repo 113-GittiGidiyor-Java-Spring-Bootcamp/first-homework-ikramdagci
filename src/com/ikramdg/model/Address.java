@@ -80,4 +80,8 @@ public class Address {
                 ", houseNumber=" + houseNumber +
                 '}';
     }
+
+    public String toPlainText() {
+        return street + ", " + city + ", " + houseNumber + ", " + zipCode;
+    }
 }
