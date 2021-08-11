@@ -7,10 +7,10 @@ public class StaffNotFoundException extends RuntimeException{
     }
 
     public StaffNotFoundException(Long id) {
-        super("Stuff with id " + id + " not found");
+        super("Staff with id " + id + " not found");
     }
 
     public StaffNotFoundException() {
-        super("Stuff not found");
+        super("Staff not found");
     }
 }
