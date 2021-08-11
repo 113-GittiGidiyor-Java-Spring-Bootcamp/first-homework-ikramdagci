@@ -8,7 +8,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "t_student")
-public class Student extends BaseSchoolStuff {
+public class Student extends BaseSchoolStaff {
 
     @Column(name = "birth_date")
     private LocalDate birthDate;
@@ -54,5 +54,13 @@ public class Student extends BaseSchoolStuff {
         this.courses = courses;
     }
 
-
+    @Override
+    public String toString() {
+        return "Student{" +
+                super.toString() +
+                "birthDate=" + birthDate +
+                ", gender=" + gender +
+                ", courses=" + courses +
+                '}';
+    }
 }

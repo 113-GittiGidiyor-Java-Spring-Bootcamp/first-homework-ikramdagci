@@ -30,7 +30,7 @@ public class PermanentInstructor extends Instructor{
     @Override
     public String toString() {
         return "PermanentInstructor{" +
-                "salary=" + salary +
-                super.toString();
+                super.toString() +
+                "salary=" + salary + "}";
     }
 }

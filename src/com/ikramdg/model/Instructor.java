@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 @Entity
 @Table(name = "t_instructor")
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Instructor extends BaseSchoolStuff {
+public abstract class Instructor extends BaseSchoolStaff {
 
 
     @Column(name = "phone_number")
@@ -51,5 +51,24 @@ public abstract class Instructor extends BaseSchoolStuff {
         this.instructedCourses = instructedCourses;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Instructor that = (Instructor) o;
+        return Objects.equals(phoneNumber, that.phoneNumber) && Objects.equals(instructedCourses, that.instructedCourses) && super.equals(o);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), phoneNumber);
+    }
+
+    @Override
+    public String toString() {
+        return  super.toString() +
+                "phoneNumber='" + phoneNumber + '\'' +
+                ", instructedCourses=" + instructedCourses;
+    }
 }

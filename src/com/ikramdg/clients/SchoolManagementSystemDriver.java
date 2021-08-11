@@ -24,18 +24,18 @@ public class SchoolManagementSystemDriver {
 
 
     public static void main(String[] args) {
-//        persistSomeData();
-        testDB();
+//        testDB();
+        persistSomeData();
     }
 
-   /* private static void persistSomeData() {
+   private static void persistSomeData() {
         Address address = new Address("41700","Kocaeli","Bayramoglu",25);
         Address address2 = new Address("34550","Istanbul","Hurriyet",569);
         Address address3 = new Address("54103","Sakarya","Emek",2);
 
-        Instructor instructor = new VisitingResearcher("Richard Helm","0123456789",address, 205);
-        Instructor instructor2 = new PermanentInstructor("Erich Gamma","0123456789",address2, 10000);
-        Instructor instructor3 = new PermanentInstructor("Ralph Johnson","0123456789",address3, 10000);
+        Instructor instructor = new VisitingResearcher("Richard Helm",address,"0123456789", 42);
+        Instructor instructor2 = new PermanentInstructor("Erich Gamma",address2,"0123456789", 10000);
+        Instructor instructor3 = new PermanentInstructor("Ralph Johnson",address3,"0123456789", 10000);
 
 
         Course course = new Course("Network Programming","CS001",4.5,instructor);
@@ -47,9 +47,9 @@ public class SchoolManagementSystemDriver {
         instructor2.addInstructedCourse(course3);
 
 
-        Student student = new Student("Ikram Dagci", LocalDate.of(1996,3,8),address, Gender.MALE);
-        Student student2 = new Student("Busra Ciftlik", LocalDate.of(1995,12,21),address2, Gender.FEMALE);
-        Student student3 = new Student("Omer Altun", LocalDate.of(1996,4,18),address3, Gender.MALE);
+        Student student = new Student("Ikram Dagci",address, LocalDate.of(1996,3,8), Gender.MALE);
+        Student student2 = new Student("Busra Ciftlik",address2,  LocalDate.of(1995,12,21),Gender.FEMALE);
+        Student student3 = new Student("Omer Altun", address3, LocalDate.of(1996,4,18), Gender.MALE);
 
         student.addCourse(course);
         student.addCourse(course2);
@@ -95,6 +95,6 @@ public class SchoolManagementSystemDriver {
         }
 
 
-    }*/
+    }
 
 }
