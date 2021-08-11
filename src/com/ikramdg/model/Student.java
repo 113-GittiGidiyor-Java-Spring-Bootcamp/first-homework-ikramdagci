@@ -12,7 +12,7 @@ public class Student extends BaseSchoolStaff {
 
     @Column(name = "birth_date")
     private LocalDate birthDate;
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private Gender gender;
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "t_student_courses", joinColumns = @JoinColumn(name = "student_id"), inverseJoinColumns = @JoinColumn(name = "course_id"))

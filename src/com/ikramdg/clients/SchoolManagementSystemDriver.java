@@ -33,9 +33,11 @@ public class SchoolManagementSystemDriver {
         System.out.printf(DISPLAY_ALL_STUDENTS_HEADER_FORMAT,"Student ID","Full Name","Address","Birth Date", "Gender", "Courses");
         for (Student student: students) {
             System.out.printf(DISPLAY_ALL_STUDENTS_FORMAT,
-                    student.getStuffId(),student.getFullName(),
+                    student.getStuffId(),
+                    student.getFullName(),
                     student.getAddress().toPlainText(),
-                    student.getBirthDate(),student.getGender(),
+                    student.getBirthDate(),
+                    student.getGender(),
                     student.getCourses().stream().map(Course::getName).reduce((course, course2) -> course +", " + course2).orElse(""));
         }
     }
