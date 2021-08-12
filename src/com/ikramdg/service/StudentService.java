@@ -40,10 +40,10 @@ public class StudentService implements StudentRepository {
                 throw new StaffNotFoundException(id);
             }
         }catch (RuntimeException e) {
-            if(transaction != null) {
+            if(transaction != null) { //  caught as runtime exception so exception may be thrown from the getTransaction() line 35
                 transaction.rollback();
             }
-            throw e;
+            e.printStackTrace();
         }
         transaction.commit();
         return foundStudent;

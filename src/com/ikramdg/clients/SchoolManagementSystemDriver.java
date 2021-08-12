@@ -13,6 +13,10 @@ public class SchoolManagementSystemDriver {
 
     private static final StudentController studentController        = new StudentController();
 
+    /**
+     * Formats prepared for printable student list.
+     * @see java.io.PrintStream#format(String, Object...)
+     */
     public static final String DISPLAY_ALL_STUDENTS_FORMAT          = "%10d  | %-15s | %-30s | %-10s | %-6s | %-45s\n";
     public static final String DISPLAY_ALL_STUDENTS_HEADER_FORMAT   = "\n%-10s  | %-15s | %-30s | %-10s | %-6s | %-45s\n-------------------------------------------------------------------------------------------------\n";
 
@@ -38,7 +42,7 @@ public class SchoolManagementSystemDriver {
                     student.getAddress().toPlainText(),
                     student.getBirthDate(),
                     student.getGender(),
-                    student.getCourses().stream().map(Course::getName).reduce((course, course2) -> course +", " + course2).orElse(""));
+                    student.getCourses().stream().map(Course::getName).reduce((course, course2) -> course +", " + course2).orElse("")); // courses are formatted as printable using only names
         }
     }
 
@@ -79,6 +83,7 @@ public class SchoolManagementSystemDriver {
         instructor.addInstructedCourse(course2);
         instructor2.addInstructedCourse(course3);
 
+//      some students may reside at the same address
         Student student = new Student("Oguzhan Turk",address, LocalDate.of(1996,8,28), Gender.MALE);
         Student student2 = new Student("Busra Ciftlik",address2,  LocalDate.of(1995,12,21),Gender.FEMALE);
         Student student3 = new Student("Omer Altun", address, LocalDate.of(1996,4,18), Gender.MALE);
@@ -116,7 +121,7 @@ public class SchoolManagementSystemDriver {
             e.printStackTrace();
         } finally {
             entityManager.close();
-//          JPAUtils.getEntityManagerFactory().close();
+            JPAUtils.getEntityManagerFactory().close(); // may be problem for other threads or clients using factory, EntityManagerFactory designed as Singleton
         }
     }
 

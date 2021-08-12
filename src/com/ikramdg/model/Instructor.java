@@ -11,6 +11,7 @@ import java.util.regex.Pattern;
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Instructor extends BaseSchoolStaff {
 
+    private static final String VALID_PHONE_NUMBER_REGEX = "^\\d{10}$";
 
     @Column(name = "phone_number")
     private String phoneNumber;
@@ -24,8 +25,15 @@ public abstract class Instructor extends BaseSchoolStaff {
 
     public Instructor() {}
 
+
+    /**
+     * Checks if the phone number is valid. In this case, it was determined as 10 digits.
+     *
+     * @param phoneNumber
+     * @return true if phone number is valid.
+     */
     private boolean isValidPhoneNumber(String phoneNumber) {
-        Pattern validPattern = Pattern.compile("^\\d{10}$");
+        Pattern validPattern = Pattern.compile(VALID_PHONE_NUMBER_REGEX);
         return validPattern.matcher(phoneNumber).matches();
 
     }
