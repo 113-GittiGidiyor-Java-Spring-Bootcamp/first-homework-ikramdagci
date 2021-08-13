@@ -24,11 +24,11 @@ public class SchoolManagementSystemDriver {
 
         persistSomeData();
 
-//        testSaveNewStudent();
-//        testFindAllCoursesOfStudent(1L);
-//        testPrintAllStudents();
-//        testDeleteStudent(7L);
-//        testPrintAllStudents();
+        testSaveNewStudent();
+        testFindAllCoursesOfStudent(1L);
+        testPrintAllStudents();
+        testDeleteStudent(7L);
+        testPrintAllStudents();
     }
 
     private static void testPrintAllStudents() {
