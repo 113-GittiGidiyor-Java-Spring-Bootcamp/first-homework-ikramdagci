@@ -11,6 +11,8 @@ public class VisitingResearcher extends Instructor{
 
     @Column(name = "hours_worked")
     private int hoursWorked;
+    private static final double hourlySalary = 205.0;
+
 
     public VisitingResearcher(String fullName, Address address, String phoneNumber, int hoursWorked) {
         super(fullName, address, phoneNumber);
@@ -27,6 +29,9 @@ public class VisitingResearcher extends Instructor{
         this.hoursWorked = hoursWorked;
     }
 
+    public double calculateTotalSalary() {
+        return hoursWorked * hourlySalary;
+    }
 
 
     @Override
