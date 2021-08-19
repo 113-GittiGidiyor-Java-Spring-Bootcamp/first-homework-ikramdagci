@@ -3,6 +3,7 @@ package com.ikramdg.clients;
 import com.ikramdg.configuration.JPAUtils;
 import com.ikramdg.controller.StudentController;
 import com.ikramdg.model.*;
+import com.ikramdg.validation.PhoneNumberValidation;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -107,7 +108,10 @@ public class SchoolManagementSystemDriver {
             entityManager.persist(student2);
             entityManager.persist(student3);
 
+
+            if(PhoneNumberValidation.validMessage(instructor.getPhoneNumber()) == null) {
             entityManager.persist(instructor);
+            }
             entityManager.persist(instructor2);
             entityManager.persist(instructor3);
 

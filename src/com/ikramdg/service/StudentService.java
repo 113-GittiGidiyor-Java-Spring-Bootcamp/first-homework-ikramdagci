@@ -81,6 +81,7 @@ public class StudentService implements StudentRepository {
         try {
             transaction.begin();
             Query query = entityManager.createNativeQuery("DELETE FROM t_student WHERE staff_id = ?", Student.class).setParameter(1, id);
+            // Use HQL
             query.executeUpdate();
             transaction.commit();
         }catch (Exception e) {

@@ -7,7 +7,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "t_school_staff")
 @Inheritance(strategy = InheritanceType.JOINED)
-@SecondaryTable(name = "t_address", pkJoinColumns = @PrimaryKeyJoinColumn(name = "stuff_id"))
+@SecondaryTable(name = "t_address", pkJoinColumns = @PrimaryKeyJoinColumn(name = "staff_id"))
 public abstract class BaseSchoolStaff {
 
     @Id
